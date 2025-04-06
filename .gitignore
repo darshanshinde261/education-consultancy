@@ -1,0 +1,24 @@
+
+
+# === Java Spring Boot Backend: EduConProject/educationConsultancy ===
+/EduConProject/educationConsultancy/target/
+/EduConProject/educationConsultancy/.env
+/EduConProject/educationConsultancy/.idea/
+/EduConProject/educationConsultancy/.classpath
+/EduConProject/educationConsultancy/.project
+/EduConProject/educationConsultancy/.settings/
+/EduConProject/educationConsultancy/.vscode/
+
+/EduConProject/educationConsultancy/logs/
+/EduConProject/educationConsultancy/*.log
+
+/EduConProject/educationConsultancy/.DS_Store
+/EduConProject/educationConsultancy/*.iml
+/EduConProject/educationConsultancy/mvnw
+/EduConProject/educationConsultancy/mvnw.cmd
+/EduConProject/educationConsultancy/.mvn/
+
+# === Common ===
+*.log
+.env
+*.swp

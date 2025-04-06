@@ -1,0 +1,14 @@
+package com.infosys.educationConsultancyApplication.bean;
+
+import jakarta.persistence.Entity;
+
+@Entity
+public class Payment {
+	@Id
+	private String billNumber;
+	private String subscriptionId;
+	private String studentId;
+	private String installmentNo;
+	private Integer amount;
+	private String payDate;
+}

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<typeInfoHistroy>
+    <typeInfo handle="=educationConsultancyApplication/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.infosys.educationConsultancyApplication.dao{CourseDao.java[CourseDao" modifiers="513" timestamp="1740573331314"/>
+    <typeInfo handle="=educationConsultancyApplication/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.infosys.educationConsultancyApplication.dao{StudentDao.java[StudentDao" modifiers="513" timestamp="1742223797051"/>
+    <typeInfo handle="=educationConsultancyApplication/C:\/Users\/Darshan Shinde\/.m2\/repository\/org\/springframework\/data\/spring-data-jpa\/3.3.8\/spring-data-jpa-3.3.8.jar=/maven.pomderived=/true=/=/maven.groupId=/org.springframework.data=/=/maven.artifactId=/spring-data-jpa=/=/maven.version=/3.3.8=/=/maven.scope=/compile=/=/maven.pomderived=/true=/&lt;org.springframework.data.jpa.repository(JpaRepository.class[JpaRepository" modifiers="1537" timestamp="1739364750815"/>
+    <typeInfo handle="=educationConsultancyApplication/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.infosys.educationConsultancyApplication.dao{PaymentDao.java[PaymentDao" modifiers="513" timestamp="1743742922265"/>
+</typeInfoHistroy>

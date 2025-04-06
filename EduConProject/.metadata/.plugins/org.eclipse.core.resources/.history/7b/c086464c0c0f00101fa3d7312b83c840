@@ -1,0 +1,5 @@
+package com.infosys.educationConsultancyApplication.bean;
+
+public class Payment {
+
+}

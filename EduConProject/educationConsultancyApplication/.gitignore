@@ -1,0 +1,75 @@
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+.classpath
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+# Ignore target directory (compiled files)
+target/
+
+# Ignore IDE settings
+.idea/
+*.iml
+*.class
+.vscode/
+.project
+.settings/
+*.sublime-workspace
+
+# Ignore Maven and Gradle directories
+.mvn/
+.gradle/
+!gradle-wrapper.jar
+build/
+
+# Ignore logs and temp files
+logs/
+*.log
+hs_err_pid*
+
+# Ignore dependency directories
+node_modules/
+vendor/
+
+# Ignore environment/config files
+.env
+application.properties
+application.yml
+application-dev.properties
+application-prod.properties
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+
+.metadata/

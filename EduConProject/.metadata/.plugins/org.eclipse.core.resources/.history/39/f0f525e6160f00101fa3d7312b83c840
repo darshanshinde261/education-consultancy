@@ -1,0 +1,17 @@
+package com.infosys.educationConsultancyApplication.dao;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.infosys.educationConsultancyApplication.bean.Payment;
+
+public interface PaymentDaoImpl implements PaymentDao {
+	@Autowired
+	private PaymentRepository repository;
+	
+	@Override
+	public void save(Payment payment) {
+		repository.save(payment);
+	}
+	
+	@
+}

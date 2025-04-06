@@ -1,0 +1,5 @@
+package com.infosys.educationConsultancyApplication.dao;
+
+public interface PaymentDao {
+
+}

@@ -1,0 +1,45 @@
+package com.infosys.educationConsultancyApplication.dao;
+
+import java.util.List;
+
+import com.infosys.educationConsultancyApplication.bean.Payment;
+
+public class PaymentDaoImpl implements PaymentDao {
+
+	@Override
+	public void save(Payment payment) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public Payment getPaymentByBill(String billNumber) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Payment> getAllBills() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Payment> getBillBySubscriptionId(String subscriptionId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Payment> getBillByStudentId(String studentId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String generateBillNumber() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
