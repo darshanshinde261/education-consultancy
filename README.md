@@ -5,7 +5,7 @@
 ## 📁 Project Structure
 
 # React frontend (Vite or CRA) 
-- educon-front/
+educon-front/
 -  
 # Spring Boot backend
 - EduConProject/ 
@@ -29,22 +29,22 @@
 ## 📦 Frontend Setup (`educon-front`)
 
 ```bash
-- cd educon-front
-- npm install     
-- npm run dev     
+cd educon-front
+npm install     
+npm run dev     
 
 ## 📦 Frontend Setup (`EduConProject/educationConsultancy`)
-- cd EduConProject/educationConsultancy
-- ./mvnw spring-boot:run    # On Linux/macOS
-- mvnw.cmd spring-boot:run  # On Windows
+cd EduConProject/educationConsultancy
+./mvnw spring-boot:run    # On Linux/macOS
+mvnw.cmd spring-boot:run  # On Windows
 
 ## Mysql setup
-- spring.datasource.url=jdbc:postgresql://localhost:5432/yourdb
-- spring.datasource.username=youruser
-- spring.datasource.password=yourpass
+spring.datasource.url=jdbc:postgresql://localhost:5432/yourdb
+spring.datasource.username=youruser
+spring.datasource.password=yourpass
 
 ## API + Frontend Connection
-- create .env
-- VITE_API_BASE_URL=http://localhost:8080/api
+create .env
+VITE_API_BASE_URL=http://localhost:8080/api
 
 
