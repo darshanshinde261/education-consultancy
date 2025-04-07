@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getAllSubscriptions } from '../../services/CourseSubscriptionService';
+import { getAllSubscriptionsByStudent } from '../../services/CourseSubscriptionService';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
@@ -8,7 +8,7 @@ const CourseSubscriptionList = () => {
   const [subscriptions, setSubscriptions] = useState([]);
 
   useEffect(() => {
-    getAllSubscriptions().then(response => {
+    getAllSubscriptionsByStudent().then(response => {
       setSubscriptions(response.data);
       
     });

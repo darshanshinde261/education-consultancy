@@ -3,27 +3,50 @@ import { useNavigate } from 'react-router-dom';
 import { validateUser } from '../../services/loginService';
 
 const LoginPage = () => {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-
+    const [formData, setFormData] = useState({ username: '', password: '' });
+    const [errors, setErrors] = useState({});
     const navigate = useNavigate();
 
-    const checkLogin = (e) => {
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+
+        // Clear error on input change
+        if (errors[name]) {
+            setErrors({ ...errors, [name]: '' });
+        }
+    };
+
+    const validateForm = () => {
+        const newErrors = {};
+        if (!formData.username.trim()) newErrors.username = 'Username is required';
+        if (!formData.password.trim()) newErrors.password = 'Password is required';
+        return newErrors;
+    };
+
+    const checkLogin = async (e) => {
         e.preventDefault();
-        validateUser(username, password).then((response) => {
-            let role = String(response.data);
-            if (role === "Admin")
-                navigate('/AdminMenu');
-            else if (role === "Student")
-                navigate('/StudentMenu');
-            else
-                alert("Wrong Userid/Password");
-        });
-    }
+        const validationErrors = validateForm();
+
+        if (Object.keys(validationErrors).length > 0) {
+            setErrors(validationErrors);
+            return;
+        }
+
+        try {
+            const response = await validateUser(formData.username, formData.password);
+            const role = String(response.data);
+            if (role === "Admin") navigate('/AdminMenu');
+            else if (role === "Student") navigate('/StudentMenu');
+            else alert("Wrong Userid/Password");
+        } catch (err) {
+            alert("Server error or invalid credentials");
+        }
+    };
 
     const registerNewUser = () => {
         navigate('/Register');
-    }
+    };
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-100">
@@ -34,21 +57,29 @@ const LoginPage = () => {
                         <label className="block text-gray-700 mb-1">User Name:</label>
                         <input
                             type="text"
-                            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                            name="username"
+                            className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 ${
+                                errors.username ? 'border-red-500 focus:ring-red-400' : 'focus:ring-blue-400'
+                            }`}
                             placeholder="username"
-                            value={username}
-                            onChange={(e) => setUsername(e.target.value)}
+                            value={formData.username}
+                            onChange={handleChange}
                         />
+                        {errors.username && <p className="text-red-500 text-sm mt-1">{errors.username}</p>}
                     </div>
                     <div>
                         <label className="block text-gray-700 mb-1">Password:</label>
                         <input
                             type="password"
-                            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                            name="password"
+                            className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 ${
+                                errors.password ? 'border-red-500 focus:ring-red-400' : 'focus:ring-blue-400'
+                            }`}
                             placeholder="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
+                            value={formData.password}
+                            onChange={handleChange}
                         />
+                        {errors.password && <p className="text-red-500 text-sm mt-1">{errors.password}</p>}
                     </div>
                     <button
                         type="submit"
@@ -68,6 +99,6 @@ const LoginPage = () => {
             </div>
         </div>
     );
-}
+};
 
 export default LoginPage;

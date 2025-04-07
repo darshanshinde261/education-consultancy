@@ -31,7 +31,7 @@ export const getAllSubscriptionsByStudentId = (id) =>{
 }
 
 export const getAllSubscriptionsByStudent = () =>{
-    return axios.get(STUDENT_URL+"/");
+    return axios.get(STUDENT_URL);
 }
 
 export const generateSubscriptionId = () =>{

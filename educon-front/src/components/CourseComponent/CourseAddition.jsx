@@ -12,6 +12,7 @@ const CourseAddition = () => {
   });
 
   const [newId, setNewId] = useState(0);
+  const [errors, setErrors] = useState({});
   const navigate = useNavigate();
 
   const showCourseId = () => {
@@ -27,10 +28,24 @@ const CourseAddition = () => {
   const onChangeHandler = (event) => {
     const { name, value } = event.target;
     setCourse(values => ({ ...values, [name]: value }));
+    setErrors(prev => ({ ...prev, [name]: '' }));
+  };
+
+  const validateForm = () => {
+    const formErrors = {};
+    if (!course.courseName.trim()) formErrors.courseName = "Course name is required";
+    if (!course.technology.trim()) formErrors.technology = "Technology is required";
+    if (!course.hours || course.hours <= 0) formErrors.hours = "Hours must be greater than 0";
+    if (!course.price || course.price <= 0) formErrors.price = "Price must be greater than 0";
+
+    setErrors(formErrors);
+    return Object.keys(formErrors).length === 0;
   };
 
   const courseSave = (event) => {
     event.preventDefault();
+    if (!validateForm()) return;
+
     course.courseId = newId;
     saveCourse(course).then(() => {
       alert("New Course is saved");
@@ -51,8 +66,9 @@ const CourseAddition = () => {
               placeholder="Course Name"
               value={course.courseName}
               onChange={onChangeHandler}
-              className="w-full border border-gray-300 px-3 py-2 rounded focus:outline-none focus:ring focus:ring-blue-200"
+              className={`w-full border px-3 py-2 rounded ${errors.courseName ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:ring`}
             />
+            {errors.courseName && <p className="text-red-500 text-sm mt-1">{errors.courseName}</p>}
           </div>
 
           <div>
@@ -63,8 +79,9 @@ const CourseAddition = () => {
               placeholder="Hours"
               value={course.hours}
               onChange={onChangeHandler}
-              className="w-full border border-gray-300 px-3 py-2 rounded focus:outline-none focus:ring focus:ring-blue-200"
+              className={`w-full border px-3 py-2 rounded ${errors.hours ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:ring`}
             />
+            {errors.hours && <p className="text-red-500 text-sm mt-1">{errors.hours}</p>}
           </div>
 
           <div>
@@ -76,8 +93,9 @@ const CourseAddition = () => {
               placeholder="Price"
               value={course.price}
               onChange={onChangeHandler}
-              className="w-full border border-gray-300 px-3 py-2 rounded focus:outline-none focus:ring focus:ring-blue-200"
+              className={`w-full border px-3 py-2 rounded ${errors.price ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:ring`}
             />
+            {errors.price && <p className="text-red-500 text-sm mt-1">{errors.price}</p>}
           </div>
 
           <div>
@@ -88,8 +106,9 @@ const CourseAddition = () => {
               placeholder="Technology"
               value={course.technology}
               onChange={onChangeHandler}
-              className="w-full border border-gray-300 px-3 py-2 rounded focus:outline-none focus:ring focus:ring-blue-200"
+              className={`w-full border px-3 py-2 rounded ${errors.technology ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:ring`}
             />
+            {errors.technology && <p className="text-red-500 text-sm mt-1">{errors.technology}</p>}
           </div>
 
           <div className="text-center">
